@@ -46,5 +46,6 @@ public class ScaleFruitController : MonoBehaviour
     {
         if (!isScaled)
         isScaled = true;
+        print("Git");
     }
 }
