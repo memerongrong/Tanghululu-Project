@@ -35,8 +35,7 @@ public class ScaleFruitController : MonoBehaviour
     //과일에 Collision이 감지되면, 접촉한 물체의 tag를 확인한 후 시소의 접시를 호출하는 메서드
     private void OnCollisionEnter(Collision collision)
     {
-        isFalling = false;
-
+                    isFalling = false;
         if (collision.gameObject.CompareTag("BluePlate"))
         {
             if (!isScaled)
@@ -74,12 +73,14 @@ public class ScaleFruitController : MonoBehaviour
     private void OnMouseDrag()
     {
         transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePosition);
+        this.gameObject.GetComponent<BoxCollider>().isTrigger = true;
     }
 
     private void OnMouseUp()
     {
         if(!isScaled)
             isFalling = true;
+        this.gameObject.GetComponent<BoxCollider>().isTrigger = false;
     }
 
     public void Restart()

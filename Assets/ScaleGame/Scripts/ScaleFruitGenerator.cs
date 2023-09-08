@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScaleFruitGenerator : MonoBehaviour
 {
     public GameObject[] fruits;
+    public GameObject[] spawner;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +29,11 @@ public class ScaleFruitGenerator : MonoBehaviour
         print(numOfFruits);
 
         // 1개의 첫 번째 과일 생성
-        Instantiate(fruit1);
+        Instantiate(fruit1, spawner[8].transform.position, fruit1.transform.rotation);
         numOfFruits--;
 
         // 1개의 두 번째 과일 생성
-        Instantiate(fruit2);
+        Instantiate(fruit2, spawner[7].transform.position, fruit2.transform.rotation);
         numOfFruits--;
 
         // 나머지 과일 생성
@@ -40,9 +41,9 @@ public class ScaleFruitGenerator : MonoBehaviour
         {
             int index = Random.Range(0, 2);
             if (index == 0)
-                Instantiate(fruit1);
+                Instantiate(fruit1, spawner[i].transform.position, fruit1.transform.rotation);
             else
-                Instantiate(fruit2);
+                Instantiate(fruit2, spawner[i].transform.position, fruit2.transform.rotation);
         }
     }
 }

@@ -12,6 +12,7 @@ public class ScaleGameDirector : MonoBehaviour
     GameObject blueScore;
     GameObject redScore;
     GameObject inequalitySign;
+    GameObject startButton;
     GameObject[] gameFruits;
     GameObject[] apples;
     GameObject[] cherries;
@@ -21,6 +22,8 @@ public class ScaleGameDirector : MonoBehaviour
 
     int blue = 0;
     int red = 0;
+    int allFruits;
+    public bool isStarted;
 
     Vector3 worldPosition;
 
@@ -33,6 +36,7 @@ public class ScaleGameDirector : MonoBehaviour
         blueScore = GameObject.Find("BlueScore");
         redScore = GameObject.Find("RedScore");
         inequalitySign = GameObject.Find("InequalitySign");
+        startButton = GameObject.Find("StartButton");
     }
 
     // Update is called once per frame
@@ -59,6 +63,11 @@ public class ScaleGameDirector : MonoBehaviour
             inequalitySign.GetComponent<Text>().text = "=";
         if (blue < red)
             inequalitySign.GetComponent<Text>().text = "<";
+
+        if (blue + red == allFruits)
+
+        if (!isStarted) startButton.SetActive(true);
+        else startButton.SetActive(false);
     }
 
     public void Count(string plateColor)
@@ -95,5 +104,12 @@ public class ScaleGameDirector : MonoBehaviour
 
         //과일 생성
         fruitGenerator.InstantiateFruits(fruits[index1], fruits[index2]);
+
+        isStarted = true;
+    }
+
+    public void CountFruits(int numOfFruits)
+    {
+        allFruits = numOfFruits;
     }
 }
