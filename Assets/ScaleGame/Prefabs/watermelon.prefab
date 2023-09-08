@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 3078507435004979824}
   - component: {fileID: 4092922861212110737}
   - component: {fileID: 522766372819009972}
-  - component: {fileID: 543736277284952906}
   - component: {fileID: 4983168085158643201}
   - component: {fileID: 2991257292744604867}
+  - component: {fileID: -8910007380126238416}
   m_Layer: 0
   m_Name: watermelon
-  m_TagString: Untagged
+  m_TagString: Watermelon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4503279889016598568}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.8177182, y: 0.053083334, z: -0.037129726, w: 0.571962}
+  m_LocalRotation: {x: -0.77980536, y: 0.055330854, z: -0.033689152, w: 0.62266135}
   m_LocalPosition: {x: 10.42, y: 13.67, z: -16.18}
   m_LocalScale: {x: 150, y: 150, z: 150}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -68.664, y: 160.5, z: -159.185}
+  m_LocalEulerAnglesHint: {x: -75.326, y: 151.353, z: -149.585}
 --- !u!33 &4092922861212110737
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -86,33 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &543736277284952906
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4503279889016598568}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &4983168085158643201
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -146,4 +119,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1e7a14b0896e44f8e0410d5eed617b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isScaled: 0
+--- !u!54 &-8910007380126238416
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4503279889016598568}
+  serializedVersion: 4
+  m_Mass: 0.1
+  m_Drag: 100
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
