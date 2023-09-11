@@ -6,13 +6,19 @@ using UnityEngine.UI;
 
 public class ScaleGameDirector : MonoBehaviour
 {
+    public Sprite[] gameFruitImages;
+
     ScaleFruitGenerator fruitGenerator;
     SeeSawController seeSaw;
+
+    Image redFruitImage;
+    Image blueFruitImage;
 
     GameObject blueScore;
     GameObject redScore;
     GameObject inequalitySign;
     GameObject startButton;
+    GameObject InGameUI;
     GameObject[] gameFruits;
     GameObject[] apples;
     GameObject[] cherries;
@@ -23,7 +29,7 @@ public class ScaleGameDirector : MonoBehaviour
     int blue = 0;
     int red = 0;
     int allFruits;
-    public bool isStarted;
+    bool isStarted;
 
     Vector3 worldPosition;
 
@@ -36,7 +42,11 @@ public class ScaleGameDirector : MonoBehaviour
         blueScore = GameObject.Find("BlueScore");
         redScore = GameObject.Find("RedScore");
         inequalitySign = GameObject.Find("InequalitySign");
+        blueFruitImage = GameObject.Find("BlueFruitImage").GetComponent<Image>();
+        redFruitImage = GameObject.Find("RedFruitImage").GetComponent<Image>();
+
         startButton = GameObject.Find("StartButton");
+        InGameUI = GameObject.Find("InGameUI");
     }
 
     // Update is called once per frame
@@ -65,9 +75,18 @@ public class ScaleGameDirector : MonoBehaviour
             inequalitySign.GetComponent<Text>().text = "<";
 
         if (blue + red == allFruits)
+            isStarted = false;
 
-        if (!isStarted) startButton.SetActive(true);
-        else startButton.SetActive(false);
+        if (isStarted)
+        {
+            startButton.SetActive(false);
+            InGameUI.SetActive(true);
+        }
+        if (!isStarted) 
+        {
+            startButton.SetActive(true);
+            InGameUI.SetActive(false);
+        }
     }
 
     public void Count(string plateColor)
@@ -78,19 +97,6 @@ public class ScaleGameDirector : MonoBehaviour
 
     public void StartGame()
     {
-        GameObject[] fruits = fruitGenerator.fruits;
-        int index1 = Random.Range(0, fruits.Length);
-        int index2 = Random.Range(0, fruits.Length);
-
-        if (index1 == index2)
-            index2 = Random.Range(0, fruits.Length);
-
-        if (index1 != index2)
-        {
-            seeSaw.PlateSetting(fruits[index1].gameObject.tag, fruits[index2].gameObject.tag);
-            Debug.Log("Blue: " + fruits[index1].gameObject.tag + ", Red: " + fruits[index2].gameObject.tag);
-        }
-
         //扁粮 苞老 昏力
         foreach (GameObject gameFruit in gameFruits)
         {
@@ -98,18 +104,34 @@ public class ScaleGameDirector : MonoBehaviour
             print("苞老 昏力");
         }
 
+        GameObject[] fruits = fruitGenerator.fruits;
+        int index1 = Random.Range(0, fruits.Length);
+        int index2 = Random.Range(0, fruits.Length);
+
+        if (index1 == index2)
+            index2 = Random.Range(0, fruits.Length);
+
+        else if (index1 != index2)
+        {
+            seeSaw.PlateSetting(fruits[index1].gameObject.tag, fruits[index2].gameObject.tag);
+            Debug.Log("Blue: " + fruits[index1].gameObject.tag + ", Red: " + fruits[index2].gameObject.tag);
+            blueFruitImage.sprite = gameFruitImages[index1];
+            redFruitImage.sprite = gameFruitImages[index2];
+
+            //苞老 积己
+            fruitGenerator.InstantiateFruits(fruits[index1], fruits[index2]);
+        }
+
         //痢荐 府悸
         blue = 0;
         red = 0;
 
-        //苞老 积己
-        fruitGenerator.InstantiateFruits(fruits[index1], fruits[index2]);
-
         isStarted = true;
     }
 
-    public void CountFruits(int numOfFruits)
+    public int CountFruits(int numOfFruits)
     {
         allFruits = numOfFruits;
+        return allFruits;
     }
 }

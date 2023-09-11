@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ScaleFruitGenerator : MonoBehaviour
 {
+    ScaleGameDirector gameDirector;
+
     public GameObject[] fruits;
     public GameObject[] spawner;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        gameDirector = GameObject.Find("GameDirector").GetComponent<ScaleGameDirector>();
     }
 
     // Update is called once per frame
@@ -26,7 +28,7 @@ public class ScaleFruitGenerator : MonoBehaviour
             numOfFruits = Random.Range(3, 10);
         } while (numOfFruits % 2 == 0);
 
-        print(numOfFruits);
+        gameDirector.CountFruits(numOfFruits);
 
         // 1개의 첫 번째 과일 생성
         Instantiate(fruit1, spawner[8].transform.position, fruit1.transform.rotation);

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class SeeSawController : MonoBehaviour
@@ -12,6 +13,8 @@ public class SeeSawController : MonoBehaviour
     string redFruit;
     string blueFruit;
 
+    Quaternion originalRotation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,8 @@ public class SeeSawController : MonoBehaviour
         redPlate = GameObject.Find("RedPlate");
         bluePlate = GameObject.Find("BluePlate");
         gameDirector = GameObject.Find("GameDirector").GetComponent<ScaleGameDirector>();
+
+        originalRotation = board.transform.rotation;
     }
 
     // Update is called once per frame
@@ -31,6 +36,7 @@ public class SeeSawController : MonoBehaviour
     {
         blueFruit = fruit1;
         redFruit = fruit2;
+        board.GetComponent<Transform>().rotation = originalRotation;
     }
 
     //파란 접시에 올라온 과일과 미션 과일의 이름을 비교하여, 시소를 왼쪽으로 기울이고,
@@ -41,7 +47,7 @@ public class SeeSawController : MonoBehaviour
         if (fruitName == blueFruit)
         {
             float newZ = boardRotationZ += 1.5f;
-            transform.Rotate(0, 0, newZ);
+            board.transform.Rotate(0, 0, newZ);
             fruitController.Scaled();
             gameDirector.Count("Blue");
             fruit.transform.parent = bluePlate.transform;
@@ -57,7 +63,7 @@ public class SeeSawController : MonoBehaviour
         if (fruitName == redFruit)
         {
             float newZ = boardRotation.z -= 1.5f;
-            transform.Rotate(0, 0, newZ);
+            board.transform.Rotate(0, 0, newZ);
             fruitController.Scaled();
             gameDirector.Count("Red");
             fruit.transform.parent = redPlate.transform;
