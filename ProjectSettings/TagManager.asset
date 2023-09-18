@@ -11,6 +11,10 @@ TagManager:
   - Lemon
   - RedPlate
   - BluePlate
+  - LeftWall
+  - RightWall
+  - Skewer
+  - Ground
   layers:
   - Default
   - TransparentFX
