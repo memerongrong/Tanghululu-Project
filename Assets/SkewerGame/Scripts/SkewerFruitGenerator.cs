@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SkewerFruitGenerator : MonoBehaviour
 {
-    float span = 1.0f;
+    float span = 3.0f;
     float delta = 0.0f;
     public GameObject[] fruits;
     Vector3[] spawners = new Vector3[3];
@@ -25,7 +26,10 @@ public class SkewerFruitGenerator : MonoBehaviour
         if (delta >= span)
         {
             delta = 0.0f;
-            print("Generating fruit . . .");
+            int randomFruitInt = Random.Range(0, fruits.Length);
+            int randomSpawnInt = Random.Range(0, spawners.Length);
+            Instantiate(fruits[randomFruitInt], spawners[randomSpawnInt], fruits[randomFruitInt].transform.rotation);
+            print(fruits[randomFruitInt].name + ", spawn at: " + randomSpawnInt);
         }
     }
 }

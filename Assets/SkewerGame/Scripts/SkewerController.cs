@@ -8,7 +8,11 @@ using UnityEngine;
 public class SkewerController : MonoBehaviour
 {
     float speed = 3.5f;
+    int numOfSkewerFruits = 0;
     string[] fruitsList = new string[3];
+    GameObject[] skeweredFruits = new GameObject[10];
+
+    SkewerFruitController[] fruitControllers;
 
     // Start is called before the first frame update
     void Start()
@@ -42,8 +46,35 @@ public class SkewerController : MonoBehaviour
         }
     }
 
-    public void CountFruits(string fruitTag)
+    public void CountFruits(string fruitTag, GameObject skeweredFruit)
     {
-        print(fruitTag);
+        SkewerFruitController[] skewerFruitControllers = new SkewerFruitController[3];
+        skewerFruitControllers[numOfSkewerFruits] = skeweredFruit.GetComponent<SkewerFruitController>();
+        numOfSkewerFruits++;
+
+        if (numOfSkewerFruits >= 2)
+        {
+            for (int i = 0; i <= 2; i++)
+            {
+                skewerFruitControllers[i].DestroyFruit();
+            }
+        }
+
+
+        //if (numOfSkewerFruits < 2)
+        //{
+        //    print(numOfSkewerFruits++ + ", " + fruitTag);
+        //    skeweredFruits[numOfSkewerFruits] = skeweredFruit;
+        //}
+        //else if (numOfSkewerFruits == 2)
+        //{
+        //    print(numOfSkewerFruits++ + ", " + fruitTag);
+        //    skeweredFruits[numOfSkewerFruits] = skeweredFruit;
+        //    for (int i = 0; i <= skeweredFruits.Length; i++)
+        //    {
+        //        Destroy(skeweredFruits[i]);
+        //        numOfSkewerFruits = 0;
+        //    }
+        //}
     }
 }
