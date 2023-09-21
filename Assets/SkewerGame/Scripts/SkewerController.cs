@@ -23,10 +23,10 @@ public class SkewerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SekwelControll();
+        SekwerControll();
     }
 
-    void SekwelControll()
+    void SekwerControll()
     {
         //꼬치의 움직임을 조절하는 메서드
         //꼬치의 포지션 중 X 속성값에 따라 이동을 제한한다.
@@ -48,16 +48,23 @@ public class SkewerController : MonoBehaviour
 
     public void CountFruits(string fruitTag, GameObject skeweredFruit)
     {
-        SkewerFruitController[] skewerFruitControllers = new SkewerFruitController[3];
-        skewerFruitControllers[numOfSkewerFruits] = skeweredFruit.GetComponent<SkewerFruitController>();
         numOfSkewerFruits++;
+        print(numOfSkewerFruits + ", " + fruitTag);
 
-        if (numOfSkewerFruits >= 2)
+        SkewerFruitController[] skewerFruitControllers = new SkewerFruitController[10];
+        skewerFruitControllers[numOfSkewerFruits] = skeweredFruit.GetComponent<SkewerFruitController>();
+
+        print(numOfSkewerFruits + ", " + skewerFruitControllers[numOfSkewerFruits].gameObject.name + " Saved.");
+
+        if (numOfSkewerFruits == 3);
         {
-            for (int i = 0; i <= 2; i++)
+            print("You've got 3 fruits!");
+            skewerFruitControllers[0].DestroyFruit();
+            print(skewerFruitControllers[1].gameObject.name + " destroyed");
+/*            for (int i = 1; i <= 3; i++)
             {
                 skewerFruitControllers[i].DestroyFruit();
-            }
+            }*/
         }
 
 
