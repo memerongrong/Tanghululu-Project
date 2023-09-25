@@ -46,7 +46,7 @@ public class SkewerFruitController : MonoBehaviour
             isSkewered = true;
             isFalling = false;
             print("Skewer got " + this.tag);
-            skewerController.CountFruits(this.tag, this.gameObject);
+            skewerController.CountFruits(this.tag, this.gameObject); 
         }
         else 
             print(this.tag + " collision with: " + collision.gameObject.tag + ", It's parent is: " + collision.gameObject.transform.parent.tag);
