@@ -12,6 +12,8 @@ public class SkewerController : MonoBehaviour
     string[] fruitsList = new string[3];
     GameObject[] skeweredFruits = new GameObject[10];
 
+    public SkewerFruitController[] skewerFruitControllers = new SkewerFruitController[3];
+
     SkewerFruitController[] fruitControllers;
 
     // Start is called before the first frame update
@@ -48,16 +50,18 @@ public class SkewerController : MonoBehaviour
 
     public void CountFruits(string fruitTag, GameObject skeweredFruit)
     {
-        SkewerFruitController[] skewerFruitControllers = new SkewerFruitController[3];
         skewerFruitControllers[numOfSkewerFruits] = skeweredFruit.GetComponent<SkewerFruitController>();
+        print(numOfSkewerFruits + ", " + skeweredFruit.name);
         numOfSkewerFruits++;
 
-        if (numOfSkewerFruits >= 2)
+        if (numOfSkewerFruits == 3)
         {
-            for (int i = 0; i <= 2; i++)
+            for (int i = 0; i < skewerFruitControllers.Length; i++)
             {
                 skewerFruitControllers[i].DestroyFruit();
             }
+
+            numOfSkewerFruits = 0;
         }
 
 
