@@ -12,6 +12,8 @@ public class SkewerController : MonoBehaviour
     string[] fruitsList = new string[3];
     GameObject[] skeweredFruits = new GameObject[10];
 
+    public SkewerFruitController[] skewerFruitControllers = new SkewerFruitController[3];
+
     SkewerFruitController[] fruitControllers;
 
     // Start is called before the first frame update
@@ -28,8 +30,8 @@ public class SkewerController : MonoBehaviour
 
     void SekwerControll()
     {
-        //²¿Ä¡ÀÇ ¿òÁ÷ÀÓÀ» Á¶ÀıÇÏ´Â ¸Ş¼­µå
-        //²¿Ä¡ÀÇ Æ÷Áö¼Ç Áß X ¼Ó¼º°ª¿¡ µû¶ó ÀÌµ¿À» Á¦ÇÑÇÑ´Ù.
+        //ê¼¬ì¹˜ì˜ ì›€ì§ì„ì„ ì¡°ì ˆí•˜ëŠ” ë©”ì„œë“œ
+        //ê¼¬ì¹˜ì˜ í¬ì§€ì…˜ ì¤‘ X ì†ì„±ê°’ì— ë”°ë¼ ì´ë™ì„ ì œí•œí•œë‹¤.
         float xPosition = this.transform.position.x;
         float maxMove = 3.5f;
 
@@ -48,14 +50,19 @@ public class SkewerController : MonoBehaviour
 
     public void CountFruits(string fruitTag, GameObject skeweredFruit)
     {
-        numOfSkewerFruits++;
-        print(numOfSkewerFruits + ", " + fruitTag);
-
-        SkewerFruitController[] skewerFruitControllers = new SkewerFruitController[10];
         skewerFruitControllers[numOfSkewerFruits] = skeweredFruit.GetComponent<SkewerFruitController>();
+        print(numOfSkewerFruits + ", " + skeweredFruit.name);
+======
 
-        print(numOfSkewerFruits + ", " + skewerFruitControllers[numOfSkewerFruits].gameObject.name + " Saved.");
+        if (numOfSkewerFruits == 3)
+        {
+            for (int i = 0; i < skewerFruitControllers.Length; i++)
+            {
+                skewerFruitControllers[i].DestroyFruit();
+            }
 
+            numOfSkewerFruits = 0;
+=======
         if (numOfSkewerFruits == 3);
         {
             print("You've got 3 fruits!");
@@ -66,22 +73,5 @@ public class SkewerController : MonoBehaviour
                 skewerFruitControllers[i].DestroyFruit();
             }*/
         }
-
-
-        //if (numOfSkewerFruits < 2)
-        //{
-        //    print(numOfSkewerFruits++ + ", " + fruitTag);
-        //    skeweredFruits[numOfSkewerFruits] = skeweredFruit;
-        //}
-        //else if (numOfSkewerFruits == 2)
-        //{
-        //    print(numOfSkewerFruits++ + ", " + fruitTag);
-        //    skeweredFruits[numOfSkewerFruits] = skeweredFruit;
-        //    for (int i = 0; i <= skeweredFruits.Length; i++)
-        //    {
-        //        Destroy(skeweredFruits[i]);
-        //        numOfSkewerFruits = 0;
-        //    }
-        //}
     }
 }
