@@ -25,13 +25,13 @@ public class SkewerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SekwelControll();
+        SekwerControll();
     }
 
-    void SekwelControll()
+    void SekwerControll()
     {
-        //²¿Ä¡ÀÇ ¿òÁ÷ÀÓÀ» Á¶ÀıÇÏ´Â ¸Ş¼­µå
-        //²¿Ä¡ÀÇ Æ÷Áö¼Ç Áß X ¼Ó¼º°ª¿¡ µû¶ó ÀÌµ¿À» Á¦ÇÑÇÑ´Ù.
+        //ê¼¬ì¹˜ì˜ ì›€ì§ì„ì„ ì¡°ì ˆí•˜ëŠ” ë©”ì„œë“œ
+        //ê¼¬ì¹˜ì˜ í¬ì§€ì…˜ ì¤‘ X ì†ì„±ê°’ì— ë”°ë¼ ì´ë™ì„ ì œí•œí•œë‹¤.
         float xPosition = this.transform.position.x;
         float maxMove = 3.5f;
 
@@ -52,7 +52,7 @@ public class SkewerController : MonoBehaviour
     {
         skewerFruitControllers[numOfSkewerFruits] = skeweredFruit.GetComponent<SkewerFruitController>();
         print(numOfSkewerFruits + ", " + skeweredFruit.name);
-        numOfSkewerFruits++;
+======
 
         if (numOfSkewerFruits == 3)
         {
@@ -62,23 +62,16 @@ public class SkewerController : MonoBehaviour
             }
 
             numOfSkewerFruits = 0;
+=======
+        if (numOfSkewerFruits == 3);
+        {
+            print("You've got 3 fruits!");
+            skewerFruitControllers[0].DestroyFruit();
+            print(skewerFruitControllers[1].gameObject.name + " destroyed");
+/*            for (int i = 1; i <= 3; i++)
+            {
+                skewerFruitControllers[i].DestroyFruit();
+            }*/
         }
-
-
-        //if (numOfSkewerFruits < 2)
-        //{
-        //    print(numOfSkewerFruits++ + ", " + fruitTag);
-        //    skeweredFruits[numOfSkewerFruits] = skeweredFruit;
-        //}
-        //else if (numOfSkewerFruits == 2)
-        //{
-        //    print(numOfSkewerFruits++ + ", " + fruitTag);
-        //    skeweredFruits[numOfSkewerFruits] = skeweredFruit;
-        //    for (int i = 0; i <= skeweredFruits.Length; i++)
-        //    {
-        //        Destroy(skeweredFruits[i]);
-        //        numOfSkewerFruits = 0;
-        //    }
-        //}
     }
 }
