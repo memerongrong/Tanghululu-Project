@@ -38,6 +38,7 @@ public class ButtonAnimationController : MonoBehaviour
         if (time < appearingTime)
         {
             GetComponent<Image>().color = new Color(1, 1, 1, time / appearingTime);
+            GetComponent<Image>().raycastTarget = true;
             print(gameObject.name + ", " + GetComponent<Image>().color);
             time += Time.deltaTime;
         }
@@ -49,6 +50,11 @@ public class ButtonAnimationController : MonoBehaviour
         {
             GetComponent<Image>().color = new Color(1, 1, 1, 1 - time / disappearingTime);
             time += Time.deltaTime;
+        }
+
+        if (time >= disappearingTime)
+        {
+            gameObject.SetActive(false);
         }
     }
     public void ResetTime()

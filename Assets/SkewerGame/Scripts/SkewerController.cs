@@ -1,8 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
 public class SkewerController : MonoBehaviour
@@ -50,8 +45,14 @@ public class SkewerController : MonoBehaviour
 
     public void CountFruits(string fruitTag, GameObject skeweredFruit)
     {
-        skewerFruitControllers[numOfSkewerFruits] = skeweredFruit.GetComponent<SkewerFruitController>();
-        print(numOfSkewerFruits + ", " + skeweredFruit.name);
+
+        if (numOfSkewerFruits < 3)
+        {
+            skewerFruitControllers[numOfSkewerFruits] = skeweredFruit.GetComponent<SkewerFruitController>();
+            print(numOfSkewerFruits + ", " + skeweredFruit.name);
+
+            numOfSkewerFruits++;
+        }
 
         if (numOfSkewerFruits == 3)
         {
@@ -59,18 +60,8 @@ public class SkewerController : MonoBehaviour
             {
                 skewerFruitControllers[i].DestroyFruit();
             }
-        }
 
             numOfSkewerFruits = 0;
-        if (numOfSkewerFruits == 3)
-        {
-            print("You've got 3 fruits!");
-            skewerFruitControllers[0].DestroyFruit();
-            print(skewerFruitControllers[1].gameObject.name + " destroyed");
-/*            for (int i = 1; i <= 3; i++)
-            {
-                skewerFruitControllers[i].DestroyFruit();
-            }*/
         }
     }
 }

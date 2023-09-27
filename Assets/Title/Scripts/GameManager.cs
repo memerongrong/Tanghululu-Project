@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    bool isStarted = false;
-    bool isSelected = false;
+    public bool isStarted;
+    public bool isSelected;
 
     TitleScript title;
     TitleScript selectTitle;
     ButtonAnimationController startButton;
-    ButtonAnimationController startButtonImage;
     ButtonAnimationController basketButton;
     ButtonAnimationController scaleButton;
     ButtonAnimationController skewerButton;
@@ -23,11 +23,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isStarted = false;
+        isSelected = false;
+
         title = GameObject.Find("Title").GetComponent<TitleScript>();
         selectTitle = GameObject.Find("Select Game").GetComponent<TitleScript>();
 
-        startButton = GameObject.Find("Start Button Image").GetComponent<ButtonAnimationController>();
-        startButtonImage = GameObject.Find("Start Button Image").GetComponent<ButtonAnimationController>();
+        startButton = GameObject.Find("Start Button").GetComponent<ButtonAnimationController>();
         basketButton = GameObject.Find("Basket Button").GetComponent<ButtonAnimationController>();
         scaleButton = GameObject.Find("Scale Button").GetComponent<ButtonAnimationController>();
         skewerButton = GameObject.Find("Skewer Button").GetComponent<ButtonAnimationController>();
@@ -49,7 +51,6 @@ public class GameManager : MonoBehaviour
         {
             title.DisappearTitle();
             startButton.DisappearButton();
-            startButtonImage.DisappearButton();
 
             selectTitle.AppearTitle();
             basketButton.AppearButton();
@@ -76,18 +77,21 @@ public class GameManager : MonoBehaviour
         skewerButton.ResetTime();
     }
 
-    void BasketGameStart()
+    public void BasketGameStart()
     {
-
+        SceneManager.LoadScene("BasketGame");
+        isSelected = true;
     }
 
-    void ScaleGameStart()
+    public void ScaleGameStart()
     {
-
+        SceneManager.LoadScene("ScaleGame");
+        isSelected = true;
     }
 
-    void SkewerGameStart()
+    public void SkewerGameStart()
     {
-
+        SceneManager.LoadScene("SkewerGame");
+        isSelected = true;
     }
 }

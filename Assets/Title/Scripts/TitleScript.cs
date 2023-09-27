@@ -33,9 +33,9 @@ public class TitleScript : MonoBehaviour
 
     public void DisappearTitle()
     {
-        print(gameObject.name + "Disappearing . . .");
         if (time < disappearingTime)
         {
+            print(gameObject.name + " Disappearing . . .");
             GetComponent<Image>().color = new Color(1, 1, 1, 1 - time/disappearingTime);
             time += Time.deltaTime;
         }

@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScaleGameDirector : MonoBehaviour
 {
@@ -133,5 +134,10 @@ public class ScaleGameDirector : MonoBehaviour
     {
         allFruits = numOfFruits;
         return allFruits;
+    }
+
+    public void Replay()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 }

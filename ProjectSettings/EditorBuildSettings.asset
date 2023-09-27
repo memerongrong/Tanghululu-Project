@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TitleScene.unity
+    guid: 4eb93c1afbd7bc84e804368431120248
+  - enabled: 1
+    path: Assets/Scenes/BasketGame.unity
+    guid: b2656b7feb4286f4f8b4c76f940db9ab
+  - enabled: 1
+    path: Assets/Scenes/ScaleGame.unity
+    guid: 60182b8c475db3944a30f6bd3ae65ccf
+  - enabled: 1
+    path: Assets/Scenes/SkewerGame.unity
+    guid: c7aa83015dc3fb140aba99775b8bb968
   m_configObjects: {}

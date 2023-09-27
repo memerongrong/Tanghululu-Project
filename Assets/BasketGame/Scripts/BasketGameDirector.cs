@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BasketGameDirector : MonoBehaviour
 {
@@ -54,4 +55,9 @@ public class BasketGameDirector : MonoBehaviour
 
         print("Apple: " + basketScoreArray[0] + ", Cherries: " + basketScoreArray[1] + ", Lemon: " + basketScoreArray[2] + ", Strawberry: " + basketScoreArray[3] + ", Watermelon: " + basketScoreArray[4]);
     }
+
+    public void Replay()
+    {
+        SceneManager.LoadScene("TitleScene");
+    }    
 }

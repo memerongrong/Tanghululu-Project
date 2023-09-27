@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class BasketFruitGenerator : MonoBehaviour
 {
     public GameObject[] fruits;
     int kindOfFruits;
-    float span = 0.5f;
+    float span = 1.8f;
     float delta = 0.0f;
         
     // Start is called before the first frame update
