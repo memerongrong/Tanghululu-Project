@@ -52,7 +52,6 @@ public class SkewerController : MonoBehaviour
     {
         skewerFruitControllers[numOfSkewerFruits] = skeweredFruit.GetComponent<SkewerFruitController>();
         print(numOfSkewerFruits + ", " + skeweredFruit.name);
-======
 
         if (numOfSkewerFruits == 3)
         {
@@ -60,10 +59,10 @@ public class SkewerController : MonoBehaviour
             {
                 skewerFruitControllers[i].DestroyFruit();
             }
+        }
 
             numOfSkewerFruits = 0;
-=======
-        if (numOfSkewerFruits == 3);
+        if (numOfSkewerFruits == 3)
         {
             print("You've got 3 fruits!");
             skewerFruitControllers[0].DestroyFruit();
