@@ -1,8 +1,6 @@
 # Tanghululu-Project
 **Make your own safety Tanghulu with mathmatic game!**  
 
--------------------------------------------------------------
-
 <br/><br/>    
 ### Introduction of Game
 This game is very simple. Collect fruits, compare them, and thread them onto skewers.  
@@ -25,10 +23,6 @@ Through this game, you can experience basic mathematical concepts.
 > #### Thread Fruits
 >    You can thread the fruits onto skewer with the **Left and Right Arrow**  
 
-
-<br/>
-
------------------------------------------------------------------
-
-<br/>    
+---------------------------------------------------------------------------
+<br/><br/>    
 **Thank you for visiting my Github!**
