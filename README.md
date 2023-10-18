@@ -1,6 +1,6 @@
 # Tanghululu-Project
 
-### Make your own safety Tanghulu with mathmatic game!
+##### Make your own safety Tanghulu with mathmatic game!
 
 
 
