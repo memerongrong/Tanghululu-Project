@@ -13,4 +13,4 @@ Tanghululu-Project
 
 ### How to play
 + Collect Fruits
- + You can collect fruits with **Mouse Click**
+    + You can collect fruits with **Mouse Click**
