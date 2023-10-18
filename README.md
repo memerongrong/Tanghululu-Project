@@ -23,8 +23,7 @@
 >    You can move fruits to the See-saw and compare them with **Drag & Drop**  
 ><br/> 
 > #### Thread Fruits
->    You can thread the fruits onto skewer with the **Left and Right Arrow**  
+>    You can thread the fruits onto skewer with the **Left and Right Arrow**
+
 <br>  
-- - -
-<br>
 **Thank you for visiting my Github!**
