@@ -1,8 +1,9 @@
 # Tanghululu-Project
 **Make your own safety Tanghulu with mathmatic game!**  
-<br/>/
+<br/>
 - - -
-<br/>/    
+<br/>
+
 ### Introduction of Game
 > This game is very simple. Collect fruits, compare them, and thread them onto skewers.  
 > Through this game, you can experience basic mathematical concepts.  
