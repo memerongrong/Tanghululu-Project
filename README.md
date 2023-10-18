@@ -12,5 +12,5 @@ Tanghululu-Project
 - Through this game, you can experience basic mathematical concepts.
 
 ### How to play
-> Collect Fruits
+#### Collect Fruits   
 >    You can collect fruits with **Mouse Click**
